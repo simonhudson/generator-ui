@@ -2,8 +2,14 @@
 
 const __module = 'UI Generator';
 const Generator = require('yeoman-generator');
+const del = require('del');
+const mkDir = require('mkdirp');
 
 const paths = [
+
+];
+
+const gulpTasks = [
 
 ];
 
