@@ -1,0 +1,22 @@
+{
+    "name": "generator-ui",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/simonhudson/generator-ui.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/simonhudson/generator-ui/issues"
+    },
+    "homepage": "https://github.com/simonhudson/generator-ui#readme",
+    "devDependencies": {
+        "yo": "^2.0.0"
+    }
+}
