@@ -1,0 +1,29 @@
+// Palette
+//
+// $palette(primary, a) - #bb0048, Primary accent
+// $palette(primary, a) - #E65100, Primary accent alternative
+// $palette(primary, bodyText) - #575757, Body text
+// $palette(primary, black) - #000, Black
+// $palette(primary, white) - #fff, White
+// $palette(alerts, info) - #015cae, Alert: info
+// $palette(alerts, warn) - #eeb320, Alert: warning
+// $palette(alerts, error) - #f00, Alert: error
+// $palette(alerts, success) - #01943b, Alert: success
+//
+// Styleguide Palette
+
+$palette: (
+	primary: (
+		a: #7CEECE,
+		a-alt: #E65100,
+		bodyText: #575757,
+		black: #000,
+		white: #fff
+	),
+	alerts: (
+		info: #015cae,
+		warn: #eeb320,
+		error: #f00,
+		success: #01943b,
+	)
+);

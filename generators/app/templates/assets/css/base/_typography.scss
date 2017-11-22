@@ -1,0 +1,60 @@
+// Typography
+//
+// Typography styling
+//
+// Markup:
+// <p>This is a paragraph</p>
+// <h1 class="body-text">Heading made to look like a paragraph</h1>
+// <p><strong>Strong element</strong></p>
+// <p class="strong">Paragraph with .strong class</p>
+// <p><small>Small element</small></p>
+// <p class="small">Paragraph with .small class</p>
+// <h1>Heading level 1</h1>
+// <p class="faux-h1">Paragraph with .faux-h1 class</p>
+// <h2>Heading level 2</h2>
+// <p class="faux-h2">Paragraph with .faux-h2 class</p>
+// <h3>Heading level 3</h3>
+// <p class="faux-h3">Paragraph with .faux-h3 class</p>
+// <h4>Heading level 4</h4>
+// <p class="faux-h4">Paragraph with .faux-h4 class</p>
+// <h5>Heading level 5</h5>
+// <p class="faux-h5">Paragraph with .faux-h5 class</p>
+// <h6>Heading level 6</h6>
+// <p class="faux-h6">Paragraph with .faux-h6 class</p>
+//
+// Styleguide Typography
+
+html {
+	color: palette(primary, bodyText);
+}
+p,
+.body-text {
+	font-size:rem($base-font-size);
+	line-height:em($base-font-size * 2);
+	margin-bottom:$spacing-lg;
+}
+
+strong,
+.strong {
+	@include strong();
+}
+
+small,
+.small {
+	font-size: rem($base-font-size * 0.8);
+}
+
+.script {
+	@include script();
+}
+
+.flourish {
+	@include flourish();
+}
+
+h1, .faux-h1 { @include h1(); }
+h2, .faux-h2 { @include h2(); }
+h3, .faux-h3 { @include h3(); }
+h4, .faux-h4 { @include h4(); }
+h5, .faux-h5 { @include h5(); }
+h6, .faux-h6 { @include h6(); }

@@ -1,0 +1,30 @@
+@mixin strong() {
+	font-family: $base-font-bold;
+	font-weight:normal;
+}
+
+@mixin center-text() {
+	text-align: center;
+}
+
+@mixin flourish() {
+	font-family: $base-font-serif;
+	font-style: italic;
+	letter-spacing: normal;
+}
+
+@mixin script() {
+	font-family: $base-font-script;
+}
+
+@mixin uppercase() {
+	text-transform: uppercase;
+}
+
+@mixin small() {
+	font-size: rem($base-font-size * 0.85);
+}
+
+@mixin text-shadow() {
+	text-shadow: 0 0 7px palette(primary, bodyText);
+}

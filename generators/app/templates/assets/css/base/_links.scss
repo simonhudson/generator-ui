@@ -1,0 +1,14 @@
+// Links
+//
+// Link styling
+//
+// Markup:
+// <a href="#">Link element</a>
+//
+//
+// Styleguide Links
+
+a,
+.text-link {
+	@include link();
+}

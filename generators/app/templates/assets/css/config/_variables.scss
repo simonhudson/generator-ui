@@ -1,0 +1,27 @@
+// Typography
+$base-font-size: 14px;
+$base-font-family: 'opensans_regular', arial, helvetica, sans-serif;
+$base-font-serif: georgia, 'times new roman', serif;
+$base-font-script: 'england', serif;
+$base-font-bold: 'opensans_semibold', $base-font-family;
+$base-font-code: 'Courier New', Courier, monospace;
+$base-font-heading: 'league_spartan', $base-font-bold;
+$base-font-ostrich: 'ostrich_sans_bold', $base-font-bold;
+$base-font-weight: 300;
+
+// Spacing
+$spacing: 8px;
+$spacing-xsm: $spacing / 4;
+$spacing-sm: $spacing / 2;
+$spacing-lg: $spacing * 2;
+$spacing-xlg: $spacing * 4;
+$spacing-xxlg: $spacing * 6;
+
+// Paths
+$img-path: '_assets/imgs/';
+$font-path: '_assets/fonts/';
+
+$header-height: 69px;
+$header-height-desktop: 87px;
+
+$width-full--desktop: 85%;

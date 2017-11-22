@@ -2,9 +2,9 @@
   "name": "generator-ui",
   "version": "1.0.0",
   "description": "",
-    "files": [
-        "generators"
-    ],
+  "files": [
+    "generators"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/simonhudson/generator-ui#readme",
   "devDependencies": {
+    "del": "^3.0.0",
+    "mkdir": "0.0.2",
     "yeoman-generator": "^2.0.1",
     "yo": "^2.0.0"
   }

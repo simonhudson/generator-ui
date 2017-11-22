@@ -1,0 +1,46 @@
+@mixin headings() {
+	color: palette(primary, bodyText);
+	font-family: $base-font-family;
+	font-weight: 300;
+	line-height: 1.4em;
+	margin-bottom:1em;
+}
+@mixin h1() {
+	@include headings();
+	font-size: rem($base-font-size * 2);
+	@include bp(tab-l) {
+		font-size: rem($base-font-size * 3);
+	}
+}
+@mixin h2() {
+	@include headings();
+	font-size: rem($base-font-size * 1.8);
+	@include bp(tab-l) {
+		font-size: rem($base-font-size * 1.8);
+	}
+}
+@mixin h3() {
+	@include headings();
+	font-size: rem($base-font-size * 1.6);
+	@include bp(tab-l) {
+		font-size: rem($base-font-size * 1.6);
+	}
+}
+@mixin h4() {
+	@include headings();
+	font-size: rem($base-font-size * 1.4);
+	@include bp(tab-l) {
+		font-size: rem($base-font-size * 1.4);
+	}
+}
+@mixin h5() {
+	@include headings();
+	font-size: rem($base-font-size * 1.2);
+	@include bp(tab-l) {
+		font-size: rem($base-font-size * 1.2);
+	}
+}
+@mixin h6() {
+	@include headings();
+	font-size: rem($base-font-size * 1);
+}

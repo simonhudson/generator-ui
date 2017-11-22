@@ -1,0 +1,37 @@
+// Lists
+//
+// List styling
+//
+// Markup:
+// <ol>
+// <li>Ordered list</li>
+// <li>Ordered list</li>
+// <li>Ordered list</li>
+// </ol>
+// <ul>
+// <li>Unordered list</li>
+// <li>Unordered list</li>
+// <li>Unordered list</li>
+// </ul>
+//
+// Styleguide Lists
+
+ul,
+ol {
+	@include margin-b-sm();
+	padding-left: rem($base-font-size * 1.25);
+
+	ul,
+	ol {
+		margin-bottom:0;
+	}
+
+	li {
+		line-height: rem($base-font-size * 1.6);
+	}
+
+}
+
+ul {
+	list-style: disc;
+}
