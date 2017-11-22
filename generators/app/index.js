@@ -27,17 +27,17 @@ const dirs = (self) => {
 };
 
 const gulpTasks = {
+	gulp: 'gulp',
 	browserSync: 'browser-sync',
 	del: 'del',
-	gulpConcat: 'gulp-concat',
-	gulpCucumber: 'gulp-cucumber',
-	gulpImagemin: 'gulp-imagemin',
-	gulpMinifyCss: 'gulp-minify-css',
-	gulpRename: 'gulp-rename',
-	gulpRubySass: 'gulp-ruby-sass',
-	gulpUglify: 'gulp-uglify',
-	gulpUtil: 'gulp-util'
-
+	concat: 'gulp-concat',
+	cucumber: 'gulp-cucumber',
+	imagemin: 'gulp-imagemin',
+	minifyCss: 'gulp-minify-css',
+	rename: 'gulp-rename',
+	rubySass: 'gulp-ruby-sass',
+	uglify: 'gulp-uglify',
+	util: 'gulp-util'
 };
 
 module.exports = class extends Generator {
@@ -80,6 +80,13 @@ module.exports = class extends Generator {
 			`${dirs(this).destination.src}`
 		)
 		this._logActionComplete('copySrc');
+	}
+
+	npmInstall() {
+		let devDependencies = '';
+		for (let i in gulpTasks) {
+			devDependencies += gulpTasks[i] + ' ';
+		}
 	}
 
 };
