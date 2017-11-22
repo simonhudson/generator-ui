@@ -15,13 +15,29 @@ const dirs = (self) => {
 	return {
 		template: {
 			root: `${self.templatePath()}\\`,
-			assets: `${self.templatePath()}\\assets\\`
+			src: `${self.templatePath()}\\src\\`,
+			assets: `${self.templatePath()}\\src\\assets\\`,
+			views: `${self.templatePath()}\\src\\assets\\`
 		},
 		destination: {
 			root: `${self.destinationPath()}\\`,
-			assets: `${self.destinationPath()}\\assets\\`
+			src: `${self.destinationPath()}\\src\\`
 		}
 	}
+};
+
+const gulpTasks = {
+	browserSync: 'browser-sync',
+	del: 'del',
+	gulpConcat: 'gulp-concat',
+	gulpCucumber: 'gulp-cucumber',
+	gulpImagemin: 'gulp-imagemin',
+	gulpMinifyCss: 'gulp-minify-css',
+	gulpRename: 'gulp-rename',
+	gulpRubySass: 'gulp-ruby-sass',
+	gulpUglify: 'gulp-uglify',
+	gulpUtil: 'gulp-util'
+
 };
 
 module.exports = class extends Generator {
@@ -42,10 +58,11 @@ module.exports = class extends Generator {
 	}
 
 	writeFiles() {
-		const files = ['package.json', 'README.md', 'index.html'];
+		const files = ['package.json', 'README.md', 'gulpfile.js', '.gitignore'];
 		const config = {
 			projectName,
-			projectNameSlug: toSlug(projectName)
+			projectNameSlug: toSlug(projectName),
+			gulpTasks
 		};
 		files.forEach(file => {
 			this.fs.copyTpl(
@@ -57,20 +74,12 @@ module.exports = class extends Generator {
 		this._logActionComplete('writeFiles');
 	}
 
-	copyFiles() {
+	copySrc() {
 		this.fs.copy(
-			`${dirs(this).template.root}.gitignore`,
-			`${dirs(this).destination.root}.gitignore`
+			`${dirs(this).template.src}**\\*`,
+			`${dirs(this).destination.src}`
 		)
-		this._logActionComplete('copyFiles');
-	}
-
-	copyAssets() {
-		this.fs.copy(
-			`${dirs(this).template.assets}**\\*`,
-			`${dirs(this).destination.assets}`
-		)
-		this._logActionComplete('copyAssets');
+		this._logActionComplete('copySrc');
 	}
 
 };
