@@ -11,6 +11,12 @@ const toSlug = (string) => {
 	return string.replace(/\s+/g, '-').toLowerCase();
 };
 
+const toCamelCase = (string) => {
+	if (!string || !string.length || typeof string !== 'string') return;
+	const split = string.split('-');
+	this.log(split);
+};
+
 const dirs = (self) => {
 	return {
 		template: {
@@ -27,11 +33,10 @@ const dirs = (self) => {
 };
 
 const gulpTasks = {
-	gulp: 'gulp',
 	browserSync: 'browser-sync',
-	del: 'del',
 	concat: 'gulp-concat',
 	cucumber: 'gulp-cucumber',
+	del: 'del',
 	imagemin: 'gulp-imagemin',
 	minifyCss: 'gulp-minify-css',
 	rename: 'gulp-rename',
@@ -82,11 +87,8 @@ module.exports = class extends Generator {
 		this._logActionComplete('copySrc');
 	}
 
-	npmInstall() {
-		let devDependencies = '';
-		for (let i in gulpTasks) {
-			devDependencies += gulpTasks[i] + ' ';
-		}
+	installDependencies() {
+		this.spawnCommand('npm', ['install']);
 	}
 
 };
