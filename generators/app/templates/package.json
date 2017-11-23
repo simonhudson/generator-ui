@@ -13,14 +13,14 @@
 	},
 	"devDependencies": {
 		"browser-sync": "*",
-		"gulp-concat": "*",
-		"gulp-cucumber": "*",
 		"del": "*",
+		"gulp-concat": "*",
 		"gulp-imagemin": "*",
 		"gulp-minify-css": "*",
 		"gulp-rename": "*",
 		"gulp-ruby-sass": "*",
 		"gulp-uglify": "*",
-		"gulp-util": "*"
+		"gulp-util": "*",
+		"gulp": "*"
 	}
 }

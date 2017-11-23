@@ -23,11 +23,19 @@ const dirs = (self) => {
 			root: `${self.templatePath()}\\`,
 			src: `${self.templatePath()}\\src\\`,
 			assets: `${self.templatePath()}\\src\\assets\\`,
-			views: `${self.templatePath()}\\src\\assets\\`
+			views: `${self.templatePath()}\\src\\views\\`
 		},
 		destination: {
 			root: `${self.destinationPath()}\\`,
-			src: `${self.destinationPath()}\\src\\`
+			src: `${self.destinationPath()}\\src\\`,
+			assets: `${self.destinationPath()}\\src\\assets\\`,
+			views: `${self.destinationPath()}\\src\\views\\`
+		},
+		app: {
+			root: `${self.destinationPath()}\\app\\`,
+			assets: `${self.destinationPath()}\\app\\assets\\`,
+			css: `${self.destinationPath()}\\app\\assets\\css\\`,
+			js: `${self.destinationPath()}\\app\\assets\\js\\`,
 		}
 	}
 };
@@ -35,23 +43,41 @@ const dirs = (self) => {
 const gulpTasks = {
 	browserSync: 'browser-sync',
 	concat: 'gulp-concat',
-	cucumber: 'gulp-cucumber',
 	del: 'del',
+	gulp: 'gulp',
 	imagemin: 'gulp-imagemin',
 	minifyCss: 'gulp-minify-css',
 	rename: 'gulp-rename',
-	rubySass: 'gulp-ruby-sass',
+	sass: 'gulp-ruby-sass',
 	uglify: 'gulp-uglify',
-	util: 'gulp-util'
+	gutil: 'gulp-util'
 };
 
 module.exports = class extends Generator {
 
+	_logActionStart(action) { return this.log(`START ${action}`); }
 	_logActionComplete(action) { return this.log(`COMPLETED ${action}`); }
 
+	_writeFileConfig() {
+		return {
+			projectName,
+			projectNameSlug: toSlug(projectName),
+			gulpTasks,
+			appRoot: this._urlRoot()
+		}
+	}
+
+	_urlRoot() {
+        let urlRoot = dirs(this).destination.root.split('htdocs');
+            urlRoot = 'http://localhost' + urlRoot[1].replace(/\\/g, '/') + 'app/';
+        return urlRoot;
+    }
+
 	clean() {
+		const action = 'Clean';
+		this._logActionStart('Clean');
 		this.fs.delete(this.destinationPath() + '\\**\\*');
-		this._logActionComplete('Clean');
+		this._logActionComplete(action);
 	}
 
 	greeting() {
@@ -63,32 +89,46 @@ module.exports = class extends Generator {
 	}
 
 	writeFiles() {
+		const action = 'Copy static files';
+		this._logActionStart(action);
 		const files = ['package.json', 'README.md', 'gulpfile.js', '.gitignore'];
-		const config = {
-			projectName,
-			projectNameSlug: toSlug(projectName),
-			gulpTasks
-		};
 		files.forEach(file => {
+			let destinationDir = dirs(this).destination.root;
 			this.fs.copyTpl(
 				`${dirs(this).template.root}${file}`,
-				`${dirs(this).destination.root}${file}`,
-				config
+				`${destinationDir}${file}`,
+				this._writeFileConfig()
 			);
 		});
-		this._logActionComplete('writeFiles');
+		this._logActionComplete(action);
 	}
 
 	copySrc() {
+		const action = 'Copy source dir';
+		this._logActionStart(action);
 		this.fs.copy(
 			`${dirs(this).template.src}**\\*`,
 			`${dirs(this).destination.src}`
 		)
-		this._logActionComplete('copySrc');
+		this._logActionComplete(action);
+	}
+
+	copyViews() {
+		const action = 'Copy views dir';
+		this._logActionStart(action);
+		this.fs.copyTpl(
+			`${dirs(this).template.views}**\\*`,
+			`${dirs(this).destination.views}`,
+			this._writeFileConfig()
+		)
+		this._logActionComplete(action);
 	}
 
 	installDependencies() {
+		const action = 'npm install';
+		this._logActionStart(action);
 		this.spawnCommand('npm', ['install']);
+		this._logActionComplete(action);
 	}
 
 };
