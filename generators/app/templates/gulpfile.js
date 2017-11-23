@@ -101,7 +101,7 @@ gulp.task('serve', ['default'], () => {
     browserSync = browserSync.create();
     browserSync.init({
         notify: false,
-        proxy: '<%= appRoot %>',
+        proxy: 'http://localhost/generated-ui/app/',
         files: [
             dirs.app.root,
             dirs.app.css,
@@ -109,6 +109,6 @@ gulp.task('serve', ['default'], () => {
         ],
         injectChanges: true
     });
-    gulp.watch(dirs.src.css + '**/*.{less, scss, css}', { interval: 1000 }, ['minifycss']);
+    gulp.watch(dirs.src.css + '**/*.scss', { interval: 1000 }, ['minifycss']);
     gulp.watch(dirs.src.js + '**/*.js', { interval: 1000 }, ['minifyjs']);
 });
