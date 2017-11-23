@@ -111,4 +111,5 @@ gulp.task('serve', ['default'], () => {
     });
     gulp.watch(dirs.src.css + '**/*.scss', { interval: 1000 }, ['minifycss']);
     gulp.watch(dirs.src.js + '**/*.js', { interval: 1000 }, ['minifyjs']);
+	gulp.watch(dirs.src.views + '**/*.{html, php}', { interval: 1000 }, ['copyviews']);
 });
