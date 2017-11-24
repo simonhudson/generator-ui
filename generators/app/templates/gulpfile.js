@@ -100,11 +100,13 @@ gulp.task('concatjs', ['deljs'], function() {
 /***
 Minify JS
 ***/
-gulp.task('minifyjs', ['concatjs'], function() {
-    return gulp.src(dirs.app.js + 'main.js')
-        .pipe(rename('main.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest(dirs.app.js));
+gulp.task('minifyjs', ['concatjs'], function(cb) {
+	pump([
+        gulp.src(dirs.app.js + 'main.js'),
+		uglify(),
+		rename('main.min.js'),
+        gulp.dest(dirs.app.js)
+    ], cb);
 });
 
 /***

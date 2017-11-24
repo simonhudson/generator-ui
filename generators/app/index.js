@@ -53,7 +53,8 @@ const gulpTasks = {
 	rename: 'gulp-rename',
 	sass: 'gulp-ruby-sass',
 	uglify: 'gulp-uglify',
-	gutil: 'gulp-util'
+	gutil: 'gulp-util',
+	pump: 'pump'
 };
 
 module.exports = class extends Generator {

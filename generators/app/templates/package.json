@@ -21,6 +21,7 @@
 		"gulp-ruby-sass": "*",
 		"gulp-uglify": "*",
 		"gulp-util": "*",
-		"gulp": "*"
+		"gulp": "*",
+		"pump": "*"
 	}
 }
