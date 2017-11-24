@@ -7,6 +7,7 @@ Object.assign(dirs.src, {
 	assets: './src/assets/',
 	config: './src/config/',
 	css: './src/assets/css/',
+	fonts: './src/assets/fonts/',
 	functions: './src/functions/',
 	includes: './src/includes/',
 	js: './src/assets/js/',
@@ -19,6 +20,7 @@ Object.assign(dirs.app, {
 	assets: './app/assets/',
 	config: './app/config/',
 	css: './app/assets/css/',
+	fonts: './app/assets/fonts/',
 	functions: './app/functions/',
 	includes: './app/includes/',
 	js: './app/assets/js/',
@@ -53,6 +55,14 @@ Copy config
 gulp.task('copyconfig', function() {
 	return gulp.src(dirs.src.config + '**/*.php')
 	.pipe(gulp.dest(dirs.app.config));
+});
+
+/***
+Copy fonts
+***/
+gulp.task('copyfonts', function() {
+	return gulp.src(dirs.src.fonts + '**/*')
+	.pipe(gulp.dest(dirs.app.fonts));
 });
 
 /***
@@ -134,6 +144,7 @@ gulp.task('minifycss', ['sass'], function() {
 gulp.task(
     'default', [
 		'copyconfig',
+		'copyfonts',
 		'copyfunctions',
 		'copyincludes',
 		'copylayout',
@@ -178,6 +189,11 @@ const watchTaskConfig = [
 		dir: 'views',
 		extensions: 'php',
 		task: 'copyviews'
+	},
+	{
+		dir: 'includes',
+		extensions: 'php',
+		task: 'copyincludes'
 	}
 ];
 
@@ -186,7 +202,7 @@ gulp.task('serve', ['default'], () => {
     browserSync = browserSync.create();
     browserSync.init({
         notify: false,
-        proxy: '<%= appRoot %>',
+        proxy: 'http://localhost/generated-ui/app/',
         files: [
             dirs.app.root,
             dirs.app.css,
@@ -196,6 +212,6 @@ gulp.task('serve', ['default'], () => {
     });
 	watchTaskConfig.forEach(item => {
 		const { dir, extensions, task } = item;
-		gulp.watch(dirs.src[dir] + `**/*.${extensions}`, { interval: 1000 }, [task])
+		gulp.watch(dirs.src[dir] + `**/**/*.${extensions}`, { interval: 1000 }, [task])
 	});
 });

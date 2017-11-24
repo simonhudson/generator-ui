@@ -1,0 +1,15 @@
+.btn {
+	@include border-radius();
+	@include box-shadow();
+	@include padding-lg();
+	@include transition(background);
+	@include strong();
+	background: palette(primary, a);
+	color: #fff;
+
+	&:focus,
+	&:hover {
+		background: darken(palette(primary, a), 10%);
+	}
+
+}
