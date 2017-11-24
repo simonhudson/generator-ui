@@ -4,19 +4,27 @@ let <%= task %> = require('<%= gulpTasks[task] %>');
 const dirs = { src: {}, app: {} };
 
 Object.assign(dirs.src, {
-	root: './src/',
 	assets: './src/assets/',
+	config: './src/config/',
 	css: './src/assets/css/',
+	functions: './src/functions/',
+	includes: './src/includes/',
 	js: './src/assets/js/',
-	views: './src/views/'
+	layout: './src/layout/',
+	root: './src/',
+	views: './src/views/',
 });
 
 Object.assign(dirs.app, {
-	root: './app/',
 	assets: './app/assets/',
+	config: './app/config/',
 	css: './app/assets/css/',
+	functions: './app/functions/',
+	includes: './app/includes/',
 	js: './app/assets/js/',
-	views: './app/'
+	layout: './app/layout/',
+	root: './app/',
+	views: './app/',
 });
 
 /***
@@ -40,12 +48,45 @@ gulp.task('delimgs', function() {
 });
 
 /***
+Copy config
+***/
+gulp.task('copyconfig', function() {
+	return gulp.src(dirs.src.config + '**/*.php')
+	.pipe(gulp.dest(dirs.app.config));
+});
+
+/***
+Copy functions
+***/
+gulp.task('copyfunctions', function() {
+	return gulp.src(dirs.src.functions + '**/*.php')
+	.pipe(gulp.dest(dirs.app.functions));
+});
+
+/***
+Copy includes
+***/
+gulp.task('copyincludes', function() {
+	return gulp.src(dirs.src.includes + '**/*.php')
+	.pipe(gulp.dest(dirs.app.includes));
+});
+
+/***
+Copy layout
+***/
+gulp.task('copylayout', function() {
+	return gulp.src(dirs.src.layout + '**/*.php')
+	.pipe(gulp.dest(dirs.app.layout));
+});
+
+/***
 Copy views
 ***/
 gulp.task('copyviews', function() {
     return gulp.src(dirs.src.views + '**/*.{html,php}')
         .pipe(gulp.dest(dirs.app.views));
 });
+
 
 /***
 Concatenate JS
@@ -90,11 +131,53 @@ gulp.task('minifycss', ['sass'], function() {
 
 gulp.task(
     'default', [
+		'copyconfig',
+		'copyfunctions',
+		'copyincludes',
+		'copylayout',
 		'copyviews',
         'minifycss',
-        'minifyjs',
+        'minifyjs'
     ]
 );
+
+const watchTaskConfig = [
+	{
+		dir: 'css',
+		extensions: 'scss',
+		task: 'minifycss'
+	},
+	{
+		dir: 'js',
+		extensions: 'js',
+		task: 'minifyjs'
+	},
+	{
+		dir: 'config',
+		extensions: 'php',
+		task: 'copyconfig'
+	},
+	{
+		dir: 'functions',
+		extensions: 'php',
+		task: 'copyfunctions'
+	},
+	{
+		dir: 'includes',
+		extensions: 'php',
+		task: 'copyincludes'
+	},
+	{
+		dir: 'layout',
+		extensions: 'php',
+		task: 'copylayout'
+	},
+	{
+		dir: 'views',
+		extensions: 'php',
+		task: 'copyviews'
+	}
+];
 
 gulp.task('serve', ['default'], () => {
     gutil.log('Initiating watch');
@@ -109,7 +192,8 @@ gulp.task('serve', ['default'], () => {
         ],
         injectChanges: true
     });
-    gulp.watch(dirs.src.css + '**/*.scss', { interval: 1000 }, ['minifycss']);
-    gulp.watch(dirs.src.js + '**/*.js', { interval: 1000 }, ['minifyjs']);
-	gulp.watch(dirs.src.views + '**/*.{html, php}', { interval: 1000 }, ['copyviews']);
+	watchTaskConfig.forEach(item => {
+		const { dir, extensions, task } = item;
+		gulp.watch(dirs.src[dir] + `**/*.${extensions}`, { interval: 1000 }, [task])
+	});
 });

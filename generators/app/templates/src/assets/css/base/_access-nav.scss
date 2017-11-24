@@ -1,0 +1,28 @@
+.access-nav {
+	@include position-tl();
+
+	&__list {
+		@include no-padding();
+	}
+
+	&__item {
+		list-style: none;
+	}
+
+	&__link {
+		@include padding-lg();
+		@include strong();
+		@include visuallyhidden();
+		background: #555;
+		color: #fff;
+		display: block;
+		text-decoration: none;
+		z-index:index($z-index, 'access-nav');
+
+		&:focus {
+			@include visuallyshown();
+		}
+
+	}
+
+}

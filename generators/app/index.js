@@ -11,31 +11,34 @@ const toSlug = (string) => {
 	return string.replace(/\s+/g, '-').toLowerCase();
 };
 
-const toCamelCase = (string) => {
-	if (!string || !string.length || typeof string !== 'string') return;
-	const split = string.split('-');
-	this.log(split);
-};
-
 const dirs = (self) => {
 	return {
 		template: {
 			root: `${self.templatePath()}\\`,
 			src: `${self.templatePath()}\\src\\`,
 			assets: `${self.templatePath()}\\src\\assets\\`,
-			views: `${self.templatePath()}\\src\\views\\`
+			views: `${self.templatePath()}\\src\\views\\`,
+			layout: `${self.templatePath()}\\src\\layout\\`,
+			functions: `${self.templatePath()}\\src\\functions\\`,
+			config: `${self.templatePath()}\\src\\config\\`
 		},
 		destination: {
 			root: `${self.destinationPath()}\\`,
 			src: `${self.destinationPath()}\\src\\`,
 			assets: `${self.destinationPath()}\\src\\assets\\`,
-			views: `${self.destinationPath()}\\src\\views\\`
+			views: `${self.destinationPath()}\\src\\views\\`,
+			layout: `${self.destinationPath()}\\src\\layout\\`,
+			functions: `${self.destinationPath()}\\src\\functions\\`,
+			config: `${self.destinationPath()}\\src\\config\\`
 		},
 		app: {
 			root: `${self.destinationPath()}\\app\\`,
 			assets: `${self.destinationPath()}\\app\\assets\\`,
 			css: `${self.destinationPath()}\\app\\assets\\css\\`,
 			js: `${self.destinationPath()}\\app\\assets\\js\\`,
+			layout: `${self.destinationPath()}\\app\\layout\\`,
+			functions: `${self.destinationPath()}\\app\\functions\\`,
+			config: `${self.destinationPath()}\\app\\config\\`
 		}
 	}
 };
