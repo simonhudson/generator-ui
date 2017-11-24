@@ -186,7 +186,7 @@ gulp.task('serve', ['default'], () => {
     browserSync = browserSync.create();
     browserSync.init({
         notify: false,
-        proxy: 'http://localhost/generated-ui/app/',
+        proxy: '<%= appRoot %>',
         files: [
             dirs.app.root,
             dirs.app.css,

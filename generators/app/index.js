@@ -62,6 +62,12 @@ module.exports = class extends Generator {
 	_logActionStart(action) { return this.log(`START ${action}`); }
 	_logActionComplete(action) { return this.log(`COMPLETED ${action}`); }
 
+	_urlRoot() {
+		let urlRoot = dirs(this).destination.root.split('htdocs');
+		urlRoot = 'http://localhost' + urlRoot[1].replace(/\\/g, '/') + 'app/';
+		return urlRoot;
+	}
+
 	_writeFileConfig() {
 		return {
 			projectName,
@@ -71,11 +77,6 @@ module.exports = class extends Generator {
 		}
 	}
 
-	_urlRoot() {
-        let urlRoot = dirs(this).destination.root.split('htdocs');
-            urlRoot = 'http://localhost' + urlRoot[1].replace(/\\/g, '/') + 'app/';
-        return urlRoot;
-    }
 
 	clean() {
 		const action = 'Clean';
