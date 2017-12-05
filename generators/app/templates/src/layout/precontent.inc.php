@@ -1,6 +1,7 @@
 <?php
 include('config/__import.inc.php');
 include('functions/__import.inc.php');
+$currentPage = currentPage();
 ?>
 <!doctype html>
 <head>
@@ -24,7 +25,9 @@ include('functions/__import.inc.php');
     <header class="header">
         <div class="wrap header__wrap">
             <div class="site-logo">
-                <img alt="<?= $siteName; ?>" src="http://via.placeholder.com/175x75" />
+                <a href="<?= $root; ?>">
+                    <img alt="<?= $siteName; ?>" src="http://via.placeholder.com/175x75" />
+                </a>
             </div>
             <nav class="main-nav">
                 <button class="main-nav__toggle js-main-nav__toggle">Menu</button>
@@ -34,6 +37,8 @@ include('functions/__import.inc.php');
             </nav>
         </div>
     </header>
+
+    <?php include('includes/hero/'.$currentPage.'.inc.php'); ?>
 
     <main class="main-content" id="main-content">
         <div class="wrap">
