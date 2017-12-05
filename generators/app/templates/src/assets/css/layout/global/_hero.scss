@@ -1,0 +1,9 @@
+.hero {
+	background: url('http://via.placeholder.com/1x1') 0 0 repeat;
+	height: rem($base-font-size * 20);
+
+	&--home {
+		height: rem($base-font-size * 40);
+	}
+
+}

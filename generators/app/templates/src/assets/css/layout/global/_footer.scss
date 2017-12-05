@@ -1,0 +1,8 @@
+.footer {
+	@include padding();
+
+	@include bp(tab-l) {
+	    @include no-padding();
+	}
+
+}

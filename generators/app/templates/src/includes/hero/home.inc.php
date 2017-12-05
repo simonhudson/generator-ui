@@ -1,1 +1,1 @@
-home hero
+Home hero

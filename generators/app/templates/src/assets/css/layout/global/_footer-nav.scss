@@ -1,0 +1,24 @@
+.footer-nav {
+
+	&__list {
+		@include no-margin();
+		@include no-padding();
+		list-style: none;
+
+		@include bp(tab-l) {
+			@include padding-y-xlg();
+		    display: flex;
+			justify-content: flex-end;
+		}
+
+	}
+
+	&__item {
+
+		@include bp(tab-l) {
+	    	margin-left: $spacing;
+		}
+
+	}
+
+}

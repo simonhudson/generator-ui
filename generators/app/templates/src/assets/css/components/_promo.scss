@@ -1,0 +1,41 @@
+.promo {
+
+	&__wrap {
+
+		@include bp(tab-l) {
+			display: flex;
+		}
+
+	}
+
+	&-item {
+		@include margin-r-xlg();
+		border-top: 2px solid palette(primary, a-alt);
+		flex: 1;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+
+		&__img {
+			height: auto;
+			width: 100%;
+		}
+
+		&__heading {
+			@include strong();
+		}
+
+		&__content {
+			@include margin-b();
+			@include padding-lg();
+
+			@include bp(tab-l) {
+				@include no-padding();
+			}
+
+		}
+
+	}
+
+}

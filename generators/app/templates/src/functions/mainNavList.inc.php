@@ -1,6 +1,6 @@
 <?php
 
-	function mainNavList($context = 'main-nav__') {
+	function mainNavList($context = 'main') {
 
 		$items = (object) array(
 			'about' => (object) array(
@@ -19,7 +19,7 @@
 
 		$returnVal = '';
 		foreach($items as $item) {
-			$returnVal = $returnVal . '<li class="'.$context.'item"><a class="'.$context.'link" href="'.$item->href.'">'.$item->text.'</a></li>';
+			$returnVal = $returnVal . '<li class="'.$context.'-nav__item"><a class="'.$context.'-nav__link" href="'.$item->href.'.php">'.$item->text.'</a></li>';
 		}
 		return $returnVal;
 	}

@@ -38,7 +38,9 @@ $currentPage = currentPage();
         </div>
     </header>
 
-    <?php include('includes/hero/'.$currentPage.'.inc.php'); ?>
+    <div class="hero hero--<?= $currentPage; ?>">
+        <?php include('includes/hero/'.$currentPage.'.inc.php'); ?>
+    </div>
 
     <main class="main-content" id="main-content">
         <div class="wrap">
