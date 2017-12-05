@@ -21,4 +21,16 @@ include('functions/__import.inc.php');
         </ul>
     </nav>
 
+    <header class="header">
+        <div class="site-logo">
+            <img alt="<?= $siteName; ?>" src="http://via.placeholder.com/175x75" />
+        </div>
+        <nav class="main-nav">
+            <button class="main-nav__toggle js-main-nav__toggle">Menu</button>
+            <ul class="main-nav__list js-main-nav__list">
+                <?= mainNavList(); ?>
+            </ul>
+        </nav>
+    </header>
+
     <main class="main-content" id="main-content">

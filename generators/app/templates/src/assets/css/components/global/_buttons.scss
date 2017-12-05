@@ -5,6 +5,7 @@
 	@include transition(background);
 	@include strong();
 	background: palette(primary, a);
+	border: 0;
 	color: #fff;
 	font-size: rem($base-font-size * 1.1);
 

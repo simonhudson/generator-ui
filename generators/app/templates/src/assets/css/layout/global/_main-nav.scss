@@ -1,0 +1,60 @@
+.main-nav {
+
+	&__toggle {
+		@include padding();
+		@include position-tr($spacing);
+		@include strong();
+		background: palette(primary, a);
+		border: 0;
+		color: #fff;
+		display: none;
+
+		.has-js & {
+			display: block;
+
+			@include bp(tab-l) {
+				display: none;
+			}
+
+		}
+
+	}
+
+	&__list {
+		@include no-margin();
+		@include no-padding();
+		list-style: none;
+
+		@include bp(tab-l) {
+			display: block;
+		}
+
+		.has-js & {
+			display: none;
+
+			@include bp(tab-l) {
+				display: flex;
+			}
+
+			&.is-open {
+				display: block;
+			}
+
+		}
+
+	}
+
+	&__link {
+		@include padding-lg();
+		@include strong();
+		@include uppercase();
+		display: block;
+		text-decoration: none;
+
+		@include bp(tab-l) {
+			display: inline-block;
+		}
+
+	}
+
+}

@@ -1,0 +1,11 @@
+.header {
+	@include padding();
+	background: #efefef;
+	position: relative;
+
+	@include bp(tab-l) {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+}

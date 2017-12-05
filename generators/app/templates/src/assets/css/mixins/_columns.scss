@@ -1,4 +1,4 @@
-@mixin columns($cols: 1, $bp: tab-l) {
+@mixin columns($cols: 1, $bp: 17) {
 
 	@include bp($bp) {
 		-moz-column-gap: $spacing;
