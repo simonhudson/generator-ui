@@ -3,9 +3,14 @@
 	background: #efefef;
 	position: relative;
 
-	@include bp(tab-l) {
-		align-items: center;
-		display: flex;
-		justify-content: space-between;
+	&__wrap {
+
+		@include bp(tab-l) {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+		}
+
 	}
+
 }

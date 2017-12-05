@@ -1,6 +1,10 @@
 .wrap {
+	@include padding-lg();
+
 	@include bp(tab-l) {
+		@include no-padding();
 		margin: 0 auto;
 		width: calc(1024px - 16px);
 	}
+
 }
