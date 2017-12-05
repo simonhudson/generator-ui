@@ -1,6 +1,7 @@
 .promo {
 
 	&__wrap {
+		margin-top: -40px;
 
 		@include bp(tab-l) {
 			display: flex;
@@ -9,13 +10,20 @@
 	}
 
 	&-item {
-		@include margin-r-xlg();
-		border-top: 2px solid palette(primary, a-alt);
+		@include border-radius();
+		@include box-shadow();
+		background: #fff;
 		flex: 1;
 
-		&:last-of-type {
-			margin-right: 0;
+		@include bp(tab-l) {
+			@include margin-r-xlg();
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+
 		}
+
 
 		&__img {
 			height: auto;
@@ -23,17 +31,30 @@
 		}
 
 		&__heading {
+			@include padding-b();
 			@include strong();
+			font-size: rem($base-font-size * 1.2);
+			position: relative;
+
+			&:after {
+				@include position-bl();
+				content: '';
+				background: palette(primary, b);
+				display: inline-block;
+				height: 2px;
+				width: 15%;
+			}
+
 		}
 
 		&__content {
 			@include margin-b();
 			@include padding-lg();
+		}
 
-			@include bp(tab-l) {
-				@include no-padding();
-			}
-
+		&__cta {
+			@include margin-t();
+			display: inline-block;
 		}
 
 	}

@@ -1,7 +1,7 @@
 .header {
 	@include padding();
 	background: #fff;
-	border-top: 5px solid palette(primary, a);
+	border-top: 5px solid rgba(palette(primary, a), .1);
 	position: relative;
 
 	@include bp(tab-l) {

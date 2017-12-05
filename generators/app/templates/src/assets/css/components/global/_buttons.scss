@@ -8,10 +8,19 @@
 	border: 0;
 	color: #fff;
 	font-size: rem($base-font-size * 1.1);
+	text-decoration: none;
 
 	&:focus,
 	&:hover {
 		background: darken(palette(primary, a), 10%);
+	}
+
+	&--a {
+		background: palette(primary, a);
+	}
+
+	&--b {
+		background: palette(primary, b);
 	}
 
 }
