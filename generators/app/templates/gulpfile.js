@@ -1,14 +1,36 @@
-<% for (let task in gulpTasks) { %>
-let <%= task %> = require('<%= gulpTasks[task] %>');
-<% } %>
+
+let browserSync = require('browser-sync');
+
+let concat = require('gulp-concat');
+
+let del = require('del');
+
+let gulp = require('gulp');
+
+let imagemin = require('gulp-imagemin');
+
+let minifyCss = require('gulp-minify-css');
+
+let rename = require('gulp-rename');
+
+let sass = require('gulp-ruby-sass');
+
+let uglify = require('gulp-uglify');
+
+let gutil = require('gulp-util');
+
+let pump = require('pump');
+
 const dirs = { src: {}, app: {} };
 
 Object.assign(dirs.src, {
 	assets: './src/assets/',
 	config: './src/config/',
 	css: './src/assets/css/',
+	cssAssets: './src/assets/css/_assets/',
 	fonts: './src/assets/fonts/',
 	functions: './src/functions/',
+	imgs: './src/assets/imgs/',
 	includes: './src/includes/',
 	js: './src/assets/js/',
 	layout: './src/layout/',
@@ -20,8 +42,10 @@ Object.assign(dirs.app, {
 	assets: './app/assets/',
 	config: './app/config/',
 	css: './app/assets/css/',
+	cssAssets: './app/assets/css/_assets/',
 	fonts: './app/assets/fonts/',
 	functions: './app/functions/',
+	imgs: './app/assets/imgs/',
 	includes: './app/includes/',
 	js: './app/assets/js/',
 	layout: './app/layout/',
@@ -63,6 +87,22 @@ Copy fonts
 gulp.task('copyfonts', function() {
 	return gulp.src(dirs.src.fonts + '**/*')
 	.pipe(gulp.dest(dirs.app.fonts));
+});
+
+/***
+Copy imgs
+***/
+gulp.task('copyimgs', function() {
+	return gulp.src(dirs.src.imgs + '**/*')
+	.pipe(gulp.dest(dirs.app.imgs));
+});
+
+/***
+Copy CS assets
+***/
+gulp.task('copyimgs', function() {
+	return gulp.src(dirs.src.cssAssets + '**/*')
+	.pipe(gulp.dest(dirs.app.cssAssets));
 });
 
 /***
@@ -147,6 +187,7 @@ gulp.task(
 		'copyfonts',
 		'copyfunctions',
 		'copyincludes',
+		'copyimgs',
 		'copylayout',
 		'copyviews',
         'minifycss',
