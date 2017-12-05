@@ -1,7 +1,13 @@
 .header {
 	@include padding();
-	background: #efefef;
+	background: #fff;
+	border-top: 5px solid palette(primary, a);
 	position: relative;
+
+	@include bp(tab-l) {
+		@include no-padding();
+		@include padding-y-lg();
+	}
 
 	&__wrap {
 
