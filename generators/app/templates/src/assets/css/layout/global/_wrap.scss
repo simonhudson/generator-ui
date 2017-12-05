@@ -1,0 +1,6 @@
+.wrap {
+	@include bp(tab-l) {
+		margin: 0 auto;
+		width: calc(1024px - 16px);
+	}
+}
