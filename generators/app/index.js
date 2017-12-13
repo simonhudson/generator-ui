@@ -44,6 +44,7 @@ const dirs = (self) => {
 };
 
 const gulpTasks = {
+	babe: 'gulp-babel',
 	browserSync: 'browser-sync',
 	concat: 'gulp-concat',
 	del: 'del',

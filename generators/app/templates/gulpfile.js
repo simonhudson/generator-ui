@@ -1,3 +1,4 @@
+let babel = require('gulp-babel');
 
 let browserSync = require('browser-sync');
 
@@ -25,6 +26,7 @@ const dirs = { src: {}, app: {} };
 
 Object.assign(dirs.src, {
 	assets: './src/assets/',
+	components: './src/components/',
 	config: './src/config/',
 	css: './src/assets/css/',
 	cssAssets: './src/assets/css/_assets/',
@@ -40,6 +42,7 @@ Object.assign(dirs.src, {
 
 Object.assign(dirs.app, {
 	assets: './app/assets/',
+	components: './app/components/',
 	config: './app/config/',
 	css: './app/assets/css/',
 	cssAssets: './app/assets/css/_assets/',
@@ -114,6 +117,14 @@ gulp.task('copyfunctions', function() {
 });
 
 /***
+Copy components
+***/
+gulp.task('copycomponents', function() {
+	return gulp.src(dirs.src.components + '**/*.php')
+	.pipe(gulp.dest(dirs.app.components));
+});
+
+/***
 Copy includes
 ***/
 gulp.task('copyincludes', function() {
@@ -137,6 +148,14 @@ gulp.task('copyviews', function() {
         .pipe(gulp.dest(dirs.app.views));
 });
 
+/***
+Babel JS
+***/
+gulp.task('babel', ['concatjs'], function () {
+  return gulp.src(dirs.app.js + 'main.js')
+    .pipe(babel())
+    .pipe(gulp.dest(dirs.app.js));
+});
 
 /***
 Concatenate JS
@@ -150,7 +169,7 @@ gulp.task('concatjs', ['deljs'], function() {
 /***
 Minify JS
 ***/
-gulp.task('minifyjs', ['concatjs'], function(cb) {
+gulp.task('minifyjs', ['babel'], function(cb) {
 	pump([
         gulp.src(dirs.app.js + 'main.js'),
 		uglify(),
@@ -183,15 +202,16 @@ gulp.task('minifycss', ['sass'], function() {
 
 gulp.task(
     'default', [
+		'copycomponents',
 		'copyconfig',
 		'copyfonts',
 		'copyfunctions',
-		'copyincludes',
 		'copyimgs',
+		'copyincludes',
 		'copylayout',
 		'copyviews',
         'minifycss',
-        'minifyjs'
+        'minifyjs',
     ]
 );
 
@@ -215,6 +235,11 @@ const watchTaskConfig = [
 		dir: 'functions',
 		extensions: 'php',
 		task: 'copyfunctions'
+	},
+	{
+		dir: 'components',
+		extensions: 'php',
+		task: 'copycomponents'
 	},
 	{
 		dir: 'includes',
