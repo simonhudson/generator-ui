@@ -1,0 +1,138 @@
+.video-player {
+	border:5px solid rgba(0,0,0,0.2);
+	box-shadow:0 0 20px rgba(0,0,0,0.2);
+	font-size: 0;
+	max-width:750px;
+	overflow: hidden;
+	position: relative;
+
+	&__time {
+		align-items: center;
+		display: flex;
+		font-size: 14px;
+	}
+
+	&__video {
+		width: 100%;
+	}
+
+	&__button {
+		background:none;
+		border:0;
+		color:white;
+		cursor:pointer;
+		line-height:1;
+		outline:0;
+		padding: 0;
+		text-align: center;
+	}
+
+	&__button:focus {
+		border-color: #ffc600;
+	}
+
+	&__slider {
+		height:30px;
+		width:10px;
+	}
+
+	&__controls {
+		background:rgba(0,0,0,0.1);
+		bottom:0;
+		display:flex;
+		flex-wrap:wrap;
+		position: absolute;
+		transform: translateY(100%) translateY(-5px);
+		transition:all .3s;
+		width: 100%;
+	}
+
+	&:hover &__controls {
+		transform: translateY(0);
+	}
+
+	&:hover .progress {
+		height:15px;
+	}
+
+	&__controls > * {
+		flex:1;
+	}
+
+	.progress {
+		background:rgba(0,0,0,0.5);
+		cursor:ew-resize;
+		display:flex;
+		flex-basis:100%;
+		flex:10;
+		height:5px;
+		position: relative;
+		transition:height 0.3s;
+	}
+
+	.progress__filled {
+		background:#ffc600;
+		flex-basis:0%;
+		flex:0;
+		width:50%;
+	}
+
+	input[type=range] {
+		-webkit-appearance: none;
+		background:transparent;
+		margin: 0 5px;
+		width: 100%;
+	}
+
+	input[type=range]:focus {
+		outline: none;
+	}
+
+	input[type=range]::-webkit-slider-runnable-track {
+		background: rgba(255,255,255,0.8);
+		border-radius: 1.3px;
+		border: 0.2px solid rgba(1, 1, 1, 0);
+		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+		cursor: pointer;
+		height: 8.4px;
+		width: 100%;
+	}
+
+	input[type=range]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		background: #ffc600;
+		border-radius: 50px;
+		box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
+		box-shadow:0 0 2px rgba(0,0,0,0.2);
+		cursor: pointer;
+		height: 15px;
+		margin-top: -3.5px;
+		width: 15px;
+	}
+
+	input[type=range]:focus::-wefbkit-slider-runnable-track {
+		background: #bada55;
+	}
+
+	input[type=range]::-moz-range-track {
+		background: #ffffff;
+		border-radius: 1.3px;
+		border: 0.2px solid rgba(1, 1, 1, 0);
+		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+		cursor: pointer;
+		height: 8.4px;
+		width: 100%;
+	}
+
+	input[type=range]::-moz-range-thumb {
+		background: #ffc600;
+		border-radius: 50px;
+		box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
+		cursor: pointer;
+		height: 15px;
+		width: 15px;
+	}
+
+}
+
+/* unholy css to style input type="range" */

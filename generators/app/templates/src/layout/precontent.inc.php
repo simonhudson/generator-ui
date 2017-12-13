@@ -1,6 +1,7 @@
 <?php
 include('config/__import.inc.php');
 include('functions/__import.inc.php');
+include('components/__import.inc.php');
 $currentPage = currentPage();
 ?>
 <!doctype html>

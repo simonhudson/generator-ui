@@ -14,37 +14,40 @@ const toSlug = (string) => {
 const dirs = (self) => {
 	return {
 		template: {
+			assets: `${self.templatePath()}\\src\\assets\\`,
+			components: `${self.templatePath()}\\src\\components\\`,
+			config: `${self.templatePath()}\\src\\config\\`
+			functions: `${self.templatePath()}\\src\\functions\\`,
+			layout: `${self.templatePath()}\\src\\layout\\`,
 			root: `${self.templatePath()}\\`,
 			src: `${self.templatePath()}\\src\\`,
-			assets: `${self.templatePath()}\\src\\assets\\`,
 			views: `${self.templatePath()}\\src\\views\\`,
-			layout: `${self.templatePath()}\\src\\layout\\`,
-			functions: `${self.templatePath()}\\src\\functions\\`,
-			config: `${self.templatePath()}\\src\\config\\`
 		},
 		destination: {
+			assets: `${self.destinationPath()}\\src\\assets\\`,
+			components: `${self.destinationPath()}\\src\\components\\`,
+			config: `${self.destinationPath()}\\src\\config\\`
+			functions: `${self.destinationPath()}\\src\\functions\\`,
+			layout: `${self.destinationPath()}\\src\\layout\\`,
 			root: `${self.destinationPath()}\\`,
 			src: `${self.destinationPath()}\\src\\`,
-			assets: `${self.destinationPath()}\\src\\assets\\`,
 			views: `${self.destinationPath()}\\src\\views\\`,
-			layout: `${self.destinationPath()}\\src\\layout\\`,
-			functions: `${self.destinationPath()}\\src\\functions\\`,
-			config: `${self.destinationPath()}\\src\\config\\`
 		},
 		app: {
-			root: `${self.destinationPath()}\\app\\`,
 			assets: `${self.destinationPath()}\\app\\assets\\`,
+			components: `${self.destinationPath()}\\app\\components\\`,
+			config: `${self.destinationPath()}\\app\\config\\`
 			css: `${self.destinationPath()}\\app\\assets\\css\\`,
+			functions: `${self.destinationPath()}\\app\\functions\\`,
 			js: `${self.destinationPath()}\\app\\assets\\js\\`,
 			layout: `${self.destinationPath()}\\app\\layout\\`,
-			functions: `${self.destinationPath()}\\app\\functions\\`,
-			config: `${self.destinationPath()}\\app\\config\\`
+			root: `${self.destinationPath()}\\app\\`,
 		}
 	}
 };
 
 const gulpTasks = {
-	babe: 'gulp-babel',
+	babel: 'gulp-babel',
 	browserSync: 'browser-sync',
 	concat: 'gulp-concat',
 	del: 'del',
