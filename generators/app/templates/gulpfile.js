@@ -1,4 +1,4 @@
-let babel = require('gulp-babel');
+// let babel = require('gulp-babel');
 
 let browserSync = require('browser-sync');
 
@@ -151,11 +151,11 @@ gulp.task('copyviews', function() {
 /***
 Babel JS
 ***/
-gulp.task('babel', ['concatjs'], function () {
-  return gulp.src(dirs.app.js + 'main.js')
-    .pipe(babel())
-    .pipe(gulp.dest(dirs.app.js));
-});
+// gulp.task('babel', ['concatjs'], function () {
+//   return gulp.src(dirs.app.js + 'main.js')
+//     .pipe(babel())
+//     .pipe(gulp.dest(dirs.app.js));
+// });
 
 /***
 Concatenate JS
@@ -169,7 +169,7 @@ gulp.task('concatjs', ['deljs'], function() {
 /***
 Minify JS
 ***/
-gulp.task('minifyjs', ['babel'], function(cb) {
+gulp.task('minifyjs', ['concatjs'], function(cb) {
 	pump([
         gulp.src(dirs.app.js + 'main.js'),
 		uglify(),
