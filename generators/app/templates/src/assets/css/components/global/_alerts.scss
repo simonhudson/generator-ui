@@ -1,13 +1,18 @@
 .alert {
-	@include padding();
+	@include margin-b();
+	@include padding-x-lg();
+	@include padding-y();
 	display: block;
 
 	$alertTypes: 'error', 'warning', 'success', 'info';
 	@each $type in $alertTypes {
 		&--#{$type} {
-			@include strong();
-			background: rgba(palette(alerts, #{$type}), .25);
+			background: rgba(palette(alerts, #{$type}), .20);
 		}
+	}
+
+	*:last-child {
+		@include no-margin();
 	}
 
 }

@@ -46,7 +46,6 @@
 
 	&__link {
 		@include padding-lg();
-		@include strong();
 		@include uppercase();
 		display: block;
 		text-decoration: none;
