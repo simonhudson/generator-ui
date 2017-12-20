@@ -21,6 +21,8 @@
 	<input id="name" type="text" />
 	<label for="email">email</label>
 	<input id="email" type="text" />
+	<label for="phone">Phone number<span class="input-error-msg">Please enter your phone number</span></label>
+	<input class="input-error" id="phone" type="text" />
 	<fieldset>
 		<legend class="faux-label">Date of birth</legend>
 		<div class="select-row">
