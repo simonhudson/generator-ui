@@ -31,19 +31,19 @@
 
 	<fieldset>
 		<legend class="faux-label">Date of birth</legend>
-		<div class="input-row">
+		<div class="select-row">
 			<label class="visuallyhidden" for="day">Day</label>
-			<select class="input-row__item" id="day">
+			<select class="select-row__item" id="day">
 				<option>Day</option>
 				<?= renderNumberSelect(31); ?>
 			</select>
 			<label class="visuallyhidden" for="month">Month</label>
-			<select class="input-row__item" id="month">
+			<select class="select-row__item" id="month">
 				<option>Month</option>
 				<?= renderMonthSelect(); ?>
 			</select>
 			<label class="visuallyhidden" for="year">Year</label>
-			<select class="input-row__item" id="year">
+			<select class="select-row__item" id="year">
 				<option>Year</option>
 				<?= renderNumberSelect((date('Y') + 100), (date('Y') - 18)); ?>
 			</select>

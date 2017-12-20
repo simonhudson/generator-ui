@@ -80,6 +80,8 @@ select {
     height: 2.4375rem;
 	margin: 0 0 rem($base-font-size * 0.5);
     padding: 0.5rem;
+	-webkit-appearance: none;
+	-moz-appearance: none;
 
 	@include bp(tab-p) {
 		width: auto;
@@ -100,25 +102,27 @@ textarea {
 	}
 
 }
-
-select {
-	// background-image: url($img-path+'caret-grey-down.svg');
-	// background-origin: content-box;
-	// background-position: right -1rem center;
-	// background-repeat: no-repeat;
-	// background-size: 9px 6px;
-	// padding-right: 1.5rem;
+select::-ms-expand {
+	display: none;
 }
 
-.input-row {
+select {
+	background-image: url($img-path+'caret-down.svg');
+	background-origin: content-box;
+	background-position: right -1rem center;
+	background-repeat: no-repeat;
+	background-size: 9px 9px;
+	padding-right: 1.5rem;
+}
+
+.select-row {
 	@include padding-b-xsm();
 	align-items: center;
 	display:flex;
-	flex-wrap: wrap;
 
 	&__item {
 		flex-grow: 1;
-		margin-right: $spacing-sm;
+		margin-right: $spacing;
 
 		&:last-of-type {
 			margin-right:0;
