@@ -5,7 +5,9 @@ include_once('convertIntBooleanToYesNo.inc.php');
 include_once('currentPage.inc.php');
 include_once('formatDateTime.inc.php');
 include_once('icon.inc.php');
+include_once('mainNavList.inc.php');
 include_once('newTabWindowWarning.inc.php');
 include_once('renderData.inc.php');
-include_once('mainNavList.inc.php');
+include_once('renderMonthSelect.inc.php');
+include_once('renderNumberSelect.inc.php');
 ?>

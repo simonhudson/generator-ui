@@ -34,7 +34,7 @@ legend {
 label,
 .faux-label,
 .input-error-label {
-	@include strong();
+	@include semi-strong();
 	display:block;
     font-size: rem($base-font-size);
     font-weight: 500;
@@ -73,7 +73,6 @@ select {
 	@include width-full();
 	background-color: #fff;
 	border: 1px solid #a8b6d1;
-	border-radius: 5px;
 	box-sizing: border-box;
     display: block;
 	font-family: inherit;
@@ -81,8 +80,6 @@ select {
     height: 2.4375rem;
 	margin: 0 0 rem($base-font-size * 0.5);
     padding: 0.5rem;
-    -webkit-appearance: none;
-	-moz-appearance: none;
 
 	@include bp(tab-p) {
 		width: auto;
@@ -105,12 +102,12 @@ textarea {
 }
 
 select {
-	background-image: url($img-path+'caret-grey-down.svg');
-	background-origin: content-box;
-	background-position: right -1rem center;
-	background-repeat: no-repeat;
-	background-size: 9px 6px;
-	padding-right: 1.5rem;
+	// background-image: url($img-path+'caret-grey-down.svg');
+	// background-origin: content-box;
+	// background-position: right -1rem center;
+	// background-repeat: no-repeat;
+	// background-size: 9px 6px;
+	// padding-right: 1.5rem;
 }
 
 .input-row {
