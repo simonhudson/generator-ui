@@ -27,7 +27,7 @@
 			<label class="visuallyhidden" for="day">Day</label>
 			<select class="select-row__item" id="day">
 				<option>Day</option>
-				<?= renderNumberSelect(31, 1); ?>
+				<?= renderNumberSelect(31); ?>
 			</select>
 			<label class="visuallyhidden" for="month">Month</label>
 			<select class="select-row__item" id="month">
