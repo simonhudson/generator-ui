@@ -27,7 +27,7 @@
 			<label class="visuallyhidden" for="day">Day</label>
 			<select class="select-row__item" id="day">
 				<option>Day</option>
-				<?= renderNumberSelect(31); ?>
+				<?= renderNumberSelect(31, 1); ?>
 			</select>
 			<label class="visuallyhidden" for="month">Month</label>
 			<select class="select-row__item" id="month">
@@ -37,7 +37,7 @@
 			<label class="visuallyhidden" for="year">Year</label>
 			<select class="select-row__item" id="year">
 				<option>Year</option>
-				<?= renderNumberSelect((date('Y') + 100), (date('Y') - 18)); ?>
+				<?= renderNumberSelect((date('Y') - 18), (date('Y') - 100), true); ?>
 			</select>
 		</div>
 	</fieldset>
