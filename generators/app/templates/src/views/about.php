@@ -21,6 +21,11 @@
 	<input id="name" type="text" />
 	<label for="email">email</label>
 	<input id="email" type="text" />
+	<label for="foo">
+		Label with info text
+		<span class="label-info">This text can give some extra context or help</span>
+	</label>
+	<input id="foo" type="text" />
 	<label for="phone">Phone number<span class="input-error-msg">Please enter your phone number</span></label>
 	<input class="input-error" id="phone" type="text" />
 	<fieldset>

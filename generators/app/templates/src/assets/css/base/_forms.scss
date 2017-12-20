@@ -41,6 +41,13 @@ label,
 	margin-bottom: 0.5em;
 }
 
+.label-info {
+	color: rgba(palette(primary, bodyText), .85);
+	display: block;
+	font-family: $base-font-family;
+	font-size: rem($base-font-size * .85);
+}
+
 [type="radio"],
 [type="checkbox"] {
 
