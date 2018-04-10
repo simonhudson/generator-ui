@@ -16,7 +16,7 @@ const dirs = (self) => {
 		template: {
 			assets: `${self.templatePath()}\\src\\assets\\`,
 			components: `${self.templatePath()}\\src\\components\\`,
-			config: `${self.templatePath()}\\src\\config\\`
+			config: `${self.templatePath()}\\src\\config\\`,
 			functions: `${self.templatePath()}\\src\\functions\\`,
 			layout: `${self.templatePath()}\\src\\layout\\`,
 			root: `${self.templatePath()}\\`,
@@ -26,7 +26,7 @@ const dirs = (self) => {
 		destination: {
 			assets: `${self.destinationPath()}\\src\\assets\\`,
 			components: `${self.destinationPath()}\\src\\components\\`,
-			config: `${self.destinationPath()}\\src\\config\\`
+			config: `${self.destinationPath()}\\src\\config\\`,
 			functions: `${self.destinationPath()}\\src\\functions\\`,
 			layout: `${self.destinationPath()}\\src\\layout\\`,
 			root: `${self.destinationPath()}\\`,
@@ -36,7 +36,7 @@ const dirs = (self) => {
 		app: {
 			assets: `${self.destinationPath()}\\app\\assets\\`,
 			components: `${self.destinationPath()}\\app\\components\\`,
-			config: `${self.destinationPath()}\\app\\config\\`
+			config: `${self.destinationPath()}\\app\\config\\`,
 			css: `${self.destinationPath()}\\app\\assets\\css\\`,
 			functions: `${self.destinationPath()}\\app\\functions\\`,
 			js: `${self.destinationPath()}\\app\\assets\\js\\`,
